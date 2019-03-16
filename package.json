@@ -1,0 +1,29 @@
+{
+	"name": "sharedb-checklist",
+	"version": "0.0.1",
+	"description": "A real-time checklist",
+	"repository": "https://github.com/share/sharedb",
+	"main": "server.js",
+	"scripts": {
+		"build": "mkdir -p static/dist/ && ./node_modules/.bin/browserify client.js --debug -o static/dist/bundle.js",
+		"start": "node server.js"
+	},
+	"author": "Alessandro Re <ale@ale-re.net> (http://www.ale-re.net)",
+	"contributors": [
+		"Alessandro Re <ale@ale-re.net> (http://www.ale-re.net)"
+	],
+	"license": "MIT",
+	"dependencies": {
+		"crypto": "^1.0.1",
+		"express": "*",
+		"sharedb": "1.0.0-beta.9",
+		"sharedb-access": "*",
+		"sharedb-mongo": "^1.0.0-beta.4",
+		"underscore": "*",
+		"websocket-json-stream": "*",
+		"ws": "*"
+	},
+	"devDependencies": {
+		"browserify": "^16.2.3"
+	}
+}
