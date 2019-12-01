@@ -1,4 +1,9 @@
-{
-	"root": true,
-	"johndoe": true
-}
+[
+	{"uid": "root", "access": "mad", "comment": "Give all access to root"},
+	{"uid": "johndoe", "access": "m", "comment": "Give read and mark access to user"},
+	{"uid": "moderator", "access": "ad", "comment": "Give read, add and delete access to moderator"},
+	{"uid": "editor", "access": "a", "comment": "Give read and add access to moderator"},
+	{"uid": "blocked", "access": "", "comment": "Give no access to blocked user"},
+    {"uid": null, "access": "r", "allowEmpty": false, "comment": "Give read access to anon (any other uid)"},
+	{"access": "", "comment": "This entry will be skipped as uid is missing"}
+]
