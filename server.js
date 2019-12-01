@@ -1,8 +1,11 @@
+'use strict';
+
 var _ = require("underscore");
 var fs = require("fs");
 var crypto = require("crypto");
 
-var http = require("http"); // Creating http server
+//var http = require("http"); // Creating http server
+var https = require("https");
 var express = require("express"); // Web framework
 var url = require("url");
 var querystring = require("querystring");
@@ -217,7 +220,10 @@ function startServer() {
     // Create a web server to serve files and listen to WebSocket connections
     var app = express();
     app.use(express.static("static"));
-    var server = http.createServer(app);
+    var server = https.createServer({
+        key: fs.readFileSync("./certs/privkey.pem"),
+        cert: fs.readFileSync("./certs/fullchain.pem")
+    });
 
     // Connect any incoming WebSocket connection to ShareDB
     var wss = new WebSocket.Server({ server: server });
