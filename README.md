@@ -8,9 +8,9 @@ In future, it will support:
  - generate or don't generate random UIDs depending on server configuration;
  - multiple checklist;
  - better backend and embedding capabilities;
- - improved everything.
+ - improve all the thing!!1!
 
-## How to use
+## About users 
 
 The `allowed.json` file contains a configuration that determine what users are allowed to join.
 
@@ -46,6 +46,9 @@ If you instead force a uid, e.g. going on `/?uid=anon`, then all users accessing
 that path will have access to the same list. No cookie is created in this case.
 
 ## Build and deploy
+
+I prefer [podman](https://podman.io) to docker, not only because runs daemonless, but also
+because it allows to run containers in user space.
 
 First, build the container for the sharedb server:
 
