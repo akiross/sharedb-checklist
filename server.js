@@ -4,7 +4,6 @@ var _ = require("underscore");
 var fs = require("fs");
 var crypto = require("crypto");
 
-//var http = require("http"); // Creating http server
 var https = require("https");
 var express = require("express"); // Web framework
 var url = require("url");
@@ -213,6 +212,7 @@ function createDoc(callback) {
     });
 }
 
+// FIXME
 // Il server deve iniziare la sessione sapendo che UID e token sono correlati
 // quando inizia la sessione e riceve entrambi, controlla che sia tutto corretto
 
@@ -223,7 +223,7 @@ function startServer() {
     var server = https.createServer({
         key: fs.readFileSync("./certs/privkey.pem"),
         cert: fs.readFileSync("./certs/fullchain.pem")
-    });
+    }, app);
 
     // Connect any incoming WebSocket connection to ShareDB
     var wss = new WebSocket.Server({ server: server });
@@ -274,9 +274,9 @@ function startServer() {
         }
     });
 
-    var port = 8080;
+    var port = 443;
     server.listen(port);
-    console.log("Listening on http://localhost:" + port);
+    console.log("Listening on https://localhost:" + port);
 }
 
 createDoc(startServer);

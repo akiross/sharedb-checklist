@@ -35,7 +35,7 @@ function getWebsocketURI() {
     } else {
         console.log("Here's the search", window.location.search);
     }
-    return "ws://" + window.location.host + window.location.search;
+    return "wss://" + window.location.host + window.location.search;
 }
 
 var authSocket = new WebSocket(getWebsocketURI());
@@ -122,7 +122,7 @@ authSocket.onmessage = function(ev) {
     };
 
     var uri =
-        "ws://" +
+        "wss://" +
         window.location.host +
         window.location.search +
         "&token=" +
